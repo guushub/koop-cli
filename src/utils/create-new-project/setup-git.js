@@ -8,7 +8,7 @@ module.exports = async (cwd) => {
   await execa(scripts.GIT_INIT, { cwd, shell: true })
 
   // add gitignore
-  const res = await fetch('https://rawcdn.githack.com/github/gitignore/master/Node.gitignore')
+  const res = await fetch('https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore')
   const gitignore = await res.text()
 
   return fs.outputFile(path.join(cwd, '.gitignore'), gitignore)
